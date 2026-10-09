@@ -1,0 +1,31 @@
+startNewDay 03-Jan-2026
+
+register M001 Alice
+register M002 Bob
+register M003 Carol
+arrive I001 Java_Book
+arrive I002 Laptop
+listMembers
+listItems
+
+checkout M001 I001
+request M002 I001
+request M003 I001
+cancelRequest M003 I001
+undo
+redo
+undo
+checkin M001 I001
+listItems
+checkout M002 I001
+undo
+redo
+checkin M002 I001
+
+startNewDay 07-Jan-2026
+listItems
+undo
+listItems
+redo
+listItems
+listMembers

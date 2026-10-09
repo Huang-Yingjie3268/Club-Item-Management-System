@@ -1,0 +1,95 @@
+
+> startNewDay 03-Jan-2026
+
+> register M001 Alice
+Done.
+
+> register M002 Bob
+Done.
+
+> register M003 Carol
+Done.
+
+> arrive I001 Java_Book
+Done.
+
+> arrive I002 Laptop
+Done.
+
+> listMembers
+ID     Name           Join Date      #Borrowed  #Requested
+M001   Alice          03-Jan-2026            0           0
+M002   Bob            03-Jan-2026            0           0
+M003   Carol          03-Jan-2026            0           0
+
+> listItems
+ID     Name                Arrival      Status
+I001   Java_Book           03-Jan-2026  Available
+I002   Laptop              03-Jan-2026  Available
+
+> checkout M001 I001
+Done.
+
+> request M002 I001
+Done. This request is no. 1 in the queue.
+
+> request M003 I001
+Done. This request is no. 2 in the queue.
+
+> cancelRequest M003 I001
+Done.
+
+> undo
+
+> redo
+
+> undo
+
+> checkin M001 I001
+Item [I001 Java_Book] is now ready for pick up by [M002 Bob].  On hold due on 06-Jan-2026.
+Done.
+
+> listItems
+ID     Name                Arrival      Status
+I001   Java_Book           03-Jan-2026  On holdshelf for M002 Bob until 06-Jan-2026 + 1 request(s): M003
+I002   Laptop              03-Jan-2026  Available
+
+> checkout M002 I001
+Done.
+
+> undo
+
+> redo
+
+> checkin M002 I001
+Item [I001 Java_Book] is now ready for pick up by [M003 Carol].  On hold due on 06-Jan-2026.
+Done.
+
+> startNewDay 07-Jan-2026
+On hold period is over for I001 Java_Book.
+Done.
+
+> listItems
+ID     Name                Arrival      Status
+I001   Java_Book           03-Jan-2026  Available
+I002   Laptop              03-Jan-2026  Available
+
+> undo
+
+> listItems
+ID     Name                Arrival      Status
+I001   Java_Book           03-Jan-2026  On holdshelf for M003 Carol until 06-Jan-2026
+I002   Laptop              03-Jan-2026  Available
+
+> redo
+
+> listItems
+ID     Name                Arrival      Status
+I001   Java_Book           03-Jan-2026  Available
+I002   Laptop              03-Jan-2026  Available
+
+> listMembers
+ID     Name           Join Date      #Borrowed  #Requested
+M001   Alice          03-Jan-2026            0           0
+M002   Bob            03-Jan-2026            0           0
+M003   Carol          03-Jan-2026            0           0
